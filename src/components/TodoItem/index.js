@@ -1,8 +1,11 @@
 import './styles.css';
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames'
 import CustomToggle from './../CustomToggle';
-import useToggle from './../../Hooks/useToggle';
+import useToggle from '../../hooks/useToggle';
+import useSubscribeTheme from './../../hooks/useSubscribeTheme';
+import { DARK_THEME, LIGHT_THEME } from '../../constants/styles';
 import { MdExpandMore, MdExpandLess, MdEdit, MdDelete } from 'react-icons/md';
 import { Card, Accordion, Button, ButtonGroup, ButtonToolbar } from 'react-bootstrap';
 
@@ -19,22 +22,29 @@ const mapToButtons = ([...elements]) => elements.map(
 const TodoItem = ({ title, description, date: _date }) => {
 
     const date = `${_date.toLocaleDateString()} - ${_date.toLocaleTimeString()}`;
-    const [className, toggleClassName] = useToggle('display-true', 'display-false');
+    const [visibility, toggleVisibility] = useToggle('display-true', 'display-false');
+    const theme = useSubscribeTheme();
+
+    const className = classNames({
+        'border': true,
+        'text-center': true,
+        'bg-secondary': theme === DARK_THEME,
+        'text-light': theme === DARK_THEME,
+        'border-secondary': theme === DARK_THEME,
+        'bg-light': theme === LIGHT_THEME,
+        'text-dark': theme === LIGHT_THEME,
+        'border-primary': theme === LIGHT_THEME,
+    });
 
     return (
         <Accordion>
-            <Card
-                bg='white'
-                border='primary'
-                text='primary'
-                className='todo-item-card text-center'
-            >
+            <Card className={className}>
                 <Card.Header className='todo-item-header'>
                     <Card.Title>{title}</Card.Title>
                     <Card.Subtitle>{date}</Card.Subtitle>
                     <CustomToggle
-                        className={className}
-                        onClick={toggleClassName}
+                        className={visibility}
+                        onClick={toggleVisibility}
                         variant='link'
                         size='sm'
                         eventKey='0'
@@ -57,7 +67,7 @@ const TodoItem = ({ title, description, date: _date }) => {
                                 }
                                 <ButtonGroup size='sm'>
                                     <CustomToggle
-                                        onClick={toggleClassName}
+                                        onClick={toggleVisibility}
                                         variant='link'
                                         size='sm'
                                         eventKey='0'
