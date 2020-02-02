@@ -1,5 +1,10 @@
-.todo-item-header {
+.todo-item .card-header {
+    border-bottom: none;
     padding-bottom: 0;
+}
+
+.todo-item .card-footer {
+    border-top: none;
 }
 
 .display-true {

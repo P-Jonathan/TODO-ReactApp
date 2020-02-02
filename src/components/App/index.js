@@ -54,8 +54,13 @@ const App = () => {
     const toggleTheme = useToggleTheme();
     const theme = useSubscribeTheme();
     const bgTheme = classNames({
-        'bg-dark': theme === DARK_THEME,
+        'bg-primary': theme === DARK_THEME,
         'bg-light': theme === LIGHT_THEME,
+    });
+    const btnTheme = classNames({
+        'btn-primary': theme === DARK_THEME,
+        'btn-outline-info': theme === LIGHT_THEME,
+        'bg-light': theme === LIGHT_THEME
     });
     const textColorClass = classNames({
         'text-light': theme === DARK_THEME,
@@ -64,7 +69,9 @@ const App = () => {
     const navbarClass = classNames(
         textColorClass,
         {
+            'navbar-dark': theme === DARK_THEME,
             'bg-secondary': theme === DARK_THEME,
+            'navbar-light': theme === LIGHT_THEME,
             'bg-info': theme === LIGHT_THEME,
             'text-center': true,
             'justify-content-between': true,
@@ -80,7 +87,12 @@ const App = () => {
                 className={navbarClass}
             >
                 <Navbar.Brand className={textColorClass}>TODOApp</Navbar.Brand>
-                <Button onClick={toggleTheme}>Toggle Theme</Button>
+                <Button
+                    className={btnTheme}
+                    onClick={toggleTheme}
+                >
+                    Toggle Theme
+                    </Button>
             </Navbar>
             <TodoList todos={todos} />
         </div>

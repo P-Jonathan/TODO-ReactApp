@@ -10,8 +10,8 @@ const TodoList = ({ todos }) => {
                     todos.map(todo =>
                         <Col
                             sm={12} 
-                            md={{ span: 6, offset: 3 }}
-                            lg={{ span: 8, offset: 2 }}
+                            md={{ span: 8, offset: 2 }}
+                            lg={{ span: 10, offset: 1 }}
                             key={todo.title}
                         >
                             <TodoItem {...todo} />

@@ -25,7 +25,9 @@ const TodoItem = ({ title, description, date: _date }) => {
     const [visibility, toggleVisibility] = useToggle('display-true', 'display-false');
     const theme = useSubscribeTheme();
 
-    const className = classNames({
+    const className = classNames(
+        'mt-1',
+        'todo-item', {
         'border': true,
         'text-center': true,
         'bg-secondary': theme === DARK_THEME,
@@ -39,7 +41,7 @@ const TodoItem = ({ title, description, date: _date }) => {
     return (
         <Accordion>
             <Card className={className}>
-                <Card.Header className='todo-item-header'>
+                <Card.Header>
                     <Card.Title>{title}</Card.Title>
                     <Card.Subtitle>{date}</Card.Subtitle>
                     <CustomToggle
