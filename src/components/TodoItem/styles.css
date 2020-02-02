@@ -1,0 +1,11 @@
+.todo-item-header {
+    padding-bottom: 0;
+}
+
+.display-true {
+    visibility: visible;
+}
+
+.display-false {
+    visibility: hidden;
+}
