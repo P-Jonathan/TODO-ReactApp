@@ -3,8 +3,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames'
 import CustomToggle from './../CustomToggle';
-import useToggle from '../../hooks/useToggle';
-import useSubscribeTheme from './../../hooks/useSubscribeTheme';
+import useToggle from './../../Hooks/useToggle';
+import useSubscribeTheme from './../../Hooks/useSubscribeTheme';
 import { DARK_THEME, LIGHT_THEME } from '../../constants/styles';
 import { MdExpandMore, MdExpandLess, MdEdit, MdDelete } from 'react-icons/md';
 import { Card, Accordion, Button, ButtonGroup, ButtonToolbar } from 'react-bootstrap';

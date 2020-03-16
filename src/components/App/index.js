@@ -3,9 +3,9 @@ import React from 'react';
 import TodoList from './../TodoList';
 import classNames from 'classnames';
 import { Navbar, Button } from 'react-bootstrap';
-import useToggleTheme from '../../hooks/useToggleTheme';
-import useSubscribeTheme from '../../hooks/useSubscribeTheme';
-import { DARK_THEME, LIGHT_THEME } from '../../constants/styles';
+import useToggleTheme from './../../Hooks/useToggleTheme';
+import useSubscribeTheme from './../../Hooks/useSubscribeTheme';
+import { DARK_THEME, LIGHT_THEME } from './../../constants/styles';
 
 let todos = [
     {

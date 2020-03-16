@@ -2,7 +2,7 @@ import React from 'react';
 import { IconContext } from 'react-icons';
 import { useSelector } from 'react-redux';
 import { getIconSizeWithFormat } from '../../selectors/styles';
-import useSubscribeTheme from '../../hooks/useSubscribeTheme';
+import useSubscribeTheme from './../../Hooks/useSubscribeTheme';
 import { DARK_THEME } from '../../constants/styles';
 
 export default ({ children }) => {
